@@ -87,6 +87,7 @@
 
 				button.setAttribute( 'disabled', '' );
 				button.setAttribute( 'data-loading', '' );
+				this.markNone();
 
 				clearTimeout( timer );
 				spinner.spin( spinnerWrapper );
@@ -203,6 +204,7 @@
 
 				button.removeAttribute( 'disabled', '' );
 				button.removeAttribute( 'data-loading', '' );
+				this.markNone();
 
 				if( spinner ) {
 					spinner.stop();
@@ -216,6 +218,30 @@
 					}
 				}
 
+			},
+			
+			markSuccess: function() {
+				
+				button.removeAttribute('data-error', '');
+				button.setAttribute('data-success', '');
+			
+				return this;
+			},
+			
+			markError: function() {
+				
+				button.removeAttribute('data-success');
+				button.setAttribute('data-error', '');
+				
+				return this;
+			},
+			
+			markNone: function() {
+				
+				button.removeAttribute('data-success');
+				button.removeAttribute('data-error');
+				
+				return this;
 			}
 
 		};

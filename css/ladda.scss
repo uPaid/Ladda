@@ -12,6 +12,8 @@
  */
 
 $spinnerSize: 32px;
+$successMark: "\2713";
+$errorMark: "\2717";
 
 
 /*************************************
@@ -100,6 +102,28 @@ $spinnerSize: 32px;
 		visibility: visible;
 	}
 
+/* Success and error states */
+.ladda-button:before,
+.ladda-button:after{
+	position: absolute;
+	left: 0;
+	right: 0;
+	opacity: 0;
+}
+
+.ladda-button:before{
+	content: $successMark;
+}
+
+.ladda-button:after{
+	content: $errorMark;
+}
+
+	.ladda-button[data-error]:after,
+	.ladda-button[data-success]:before{
+		opacity: 1;
+		@include transition( 0.5s linear all );
+	}
 
 /*************************************
  * EASING
@@ -417,6 +441,22 @@ $spinnerSize: 32px;
 
 	@include transform( none );
 }
+
+.ladda-button[data-style=zoom-in]:before,
+.ladda-button[data-style=zoom-in]:after{
+	@include transform( scale( 0.1 ) );
+}
+
+.ladda-button[data-style=zoom-in][data-error]:after,
+.ladda-button[data-style=zoom-in][data-success]:before{
+    @include transform( scale( 1.0 ) );
+}
+
+	.ladda-button[data-error][data-style=zoom-in] .ladda-label,
+	.ladda-button[data-success][data-style=zoom-in] .ladda-label{
+		opacity: 0;
+		@include transform( scale( 2.2 ) );
+	}
 
 
 /*************************************
