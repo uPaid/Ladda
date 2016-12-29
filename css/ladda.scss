@@ -411,9 +411,25 @@ $errorMark: "\2717";
 	@include transform( none );
 }
 
+.ladda-button[data-style=zoom-out]:before,
+.ladda-button[data-style=zoom-out]:after{
+	@include transform( scale( 2.2 ) );
+}
+
+.ladda-button[data-style=zoom-out][data-error]:after,
+.ladda-button[data-style=zoom-out][data-success]:before{
+    @include transform( scale( 1.0 ) );
+}
+
+	.ladda-button[data-error][data-style=zoom-out] .ladda-label,
+	.ladda-button[data-success][data-style=zoom-out] .ladda-label{
+		opacity: 0;
+		@include transform( scale( 0.5 ) );
+	}
+
 
 /*************************************
- * ZOOM-IN
+ * ZOOM-IN 
  */
 
 .ladda-button[data-style=zoom-in] {
