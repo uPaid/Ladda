@@ -411,21 +411,26 @@ $errorMark: "\2717";
 	@include transform( none );
 }
 
-.ladda-button[data-style=zoom-out]:before,
-.ladda-button[data-style=zoom-out]:after{
-	@include transform( scale( 2.2 ) );
-}
-
-.ladda-button[data-style=zoom-out][data-error]:after,
-.ladda-button[data-style=zoom-out][data-success]:before{
-    @include transform( scale( 1.0 ) );
-}
-
-	.ladda-button[data-error][data-style=zoom-out] .ladda-label,
-	.ladda-button[data-success][data-style=zoom-out] .ladda-label{
-		opacity: 0;
-		@include transform( scale( 0.5 ) );
+.ladda-button[data-style=zoom-out] {
+	&:before,
+	&:after {
+		@include transform( scale( 2.2 ) );
 	}
+	
+	&[data-error],
+	&[data-success]{
+		&:before,
+		&:after{
+			@include transform( scale( 1.0 ) );
+		}
+		
+		& .ladda-label{
+			opacity: 0;
+			@include transform( scale( 0.5 ) );
+		}
+		
+	}
+}
 
 
 /*************************************
@@ -458,22 +463,26 @@ $errorMark: "\2717";
 	@include transform( none );
 }
 
-.ladda-button[data-style=zoom-in]:before,
-.ladda-button[data-style=zoom-in]:after{
-	@include transform( scale( 0.1 ) );
-}
-
-.ladda-button[data-style=zoom-in][data-error]:after,
-.ladda-button[data-style=zoom-in][data-success]:before{
-    @include transform( scale( 1.0 ) );
-}
-
-	.ladda-button[data-error][data-style=zoom-in] .ladda-label,
-	.ladda-button[data-success][data-style=zoom-in] .ladda-label{
-		opacity: 0;
-		@include transform( scale( 2.2 ) );
+.ladda-button[data-style=zoom-in] {
+	&:before,
+	&:after {
+		@include transform( scale( 0.1 ) );
 	}
-
+	
+	&[data-error],
+	&[data-success]{
+		&:before,
+		&:after{
+			@include transform( scale( 1.0 ) );
+		}
+		
+		& .ladda-label{
+			opacity: 0;
+			@include transform( scale( 2.2 ) );
+		}
+		
+	}
+}
 
 /*************************************
  * CONTRACT
