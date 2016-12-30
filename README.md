@@ -62,6 +62,15 @@ l.isLoading();
 
 // Delete the button's ladda instance
 l.remove();
+
+// Highlight button to signal success of operation
+l.markSuccess();
+
+// Highlight button to signal fail of operation
+l.markError();
+
+// Remove status indicator
+l.markNone();
 ```
 
 All loading animations on the page can be stopped by using:
